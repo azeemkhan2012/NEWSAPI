@@ -5,10 +5,10 @@ import "./heading.css";
 function App() {
   return (
     <>
-   <h1 className="title"> NEWS API</h1>
-     
-        <MainPage />
-        </>
+      <h1 className="title"> NEWS API</h1>
+
+      <MainPage />
+    </>
   );
 }
 

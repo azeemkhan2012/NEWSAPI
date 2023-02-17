@@ -1,8 +1,8 @@
-.title{
-    color: grey;
-    display: flex;
-    justify-content: center;
-    font-weight: 600px;
-    font-size: 2rem;
-    justify-items: center;
+.title {
+  color: grey;
+  display: flex;
+  justify-content: center;
+  font-weight: 600px;
+  font-size: 2rem;
+  justify-items: center;
 }

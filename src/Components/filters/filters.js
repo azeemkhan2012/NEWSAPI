@@ -1,30 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Box, Button, MenuItem, TextField } from "@mui/material";
 import { sortOptions } from "../Data/data";
 
-const Filters = () => {
-  const [data, setData]=useState({
-    q: "Karachi",
-    from: "2023-02-01",
-    to: "2023-02-16",
-    sortBy: "popularity",
-    pageSize: 2,
-
-  })
-
-
-
-  const handleChange = (e) => {
-
-setData((pre)=>{
-  const duplicate = {...pre};
-  duplicate[e.target.name] = e.target.value;
-
-  // console.log("DATAAAAAAAAAAAAAAA", duplicate);
-  return duplicate;
-});
-  };
-
+const Filters = ({ data, onSearch, handleChange }) => {
   return (
     <>
       <Box
@@ -43,7 +21,7 @@ setData((pre)=>{
           defaultValue={data.q}
           placeholder="Search"
           helperText="Search with a Key Word"
-          onChange={(e)=> handleChange(e)}
+          onChange={(e) => handleChange(e)}
         />
         <TextField
           id="standard-number"
@@ -54,7 +32,6 @@ setData((pre)=>{
           InputLabelProps={{
             shrink: true,
           }}
-          // variant="standard"
           helperText="Starting Date"
           onChange={(e) => handleChange(e)}
         />
@@ -67,7 +44,6 @@ setData((pre)=>{
           InputLabelProps={{
             shrink: true,
           }}
-          // variant="standard"
           helperText="Ending Date"
           onChange={(e) => handleChange(e)}
         />
@@ -80,7 +56,6 @@ setData((pre)=>{
           InputLabelProps={{
             shrink: true,
           }}
-          // variant="standard"
           helperText="Select Page Size "
           onChange={(e) => handleChange(e)}
         />
@@ -94,7 +69,6 @@ setData((pre)=>{
           onChange={(e) => handleChange(e)}
         >
           {sortOptions.map((option) => {
-            // console.log(option);
             return (
               <MenuItem key={option} value={option}>
                 {option}
@@ -103,7 +77,11 @@ setData((pre)=>{
           })}
         </TextField>
       </Box>
-      <Button variant="contained" sx={{ mb: "50px", ml: "25px" }}>
+      <Button
+        variant="contained"
+        sx={{ mb: "50px", ml: "25px" }}
+        onClick={onSearch}
+      >
         Search
       </Button>
     </>
